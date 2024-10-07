@@ -8,6 +8,11 @@ const PORT = process.env.PORT || 3000;
 require("dotenv").config();
 app.use(express.json());
 app.use(cors());
+
+app.get("/", (req, res) => {
+  res.send("Welcome to the URL shortener service!");
+});
+
 app.get("/:shortCode", (req, res) => {
   const shortCode = req.params.shortCode;
   urlSchema
